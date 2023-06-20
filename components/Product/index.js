@@ -5,6 +5,7 @@ import { ProductCard } from "./Product.styled";
 import { StyledLink } from "../Link/Link.styled";
 import Comments from "../Comments";
 import ProductForm from "../ProductForm";
+import { StyledButton } from "../Button/Button.styled";
 
 export default function Product() {
   const router = useRouter();
@@ -66,12 +67,12 @@ export default function Product() {
       </p>
       {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
       <StyledLink href="/">Back to all</StyledLink>
-      <button type="button" onClick={() => setIsEditMode(!isEditMode)}>
+      <StyledButton onClick={() => setIsEditMode(!isEditMode)}>
         {isEditMode ? "Cancel" : "Edit"}
-      </button>
-      <button type="button" onClick={() => handleDeleteProduct(id)}>
+      </StyledButton>
+      <StyledButton onClick={() => handleDeleteProduct(id)}>
         Delete
-      </button>
+      </StyledButton>
       {isEditMode && (
         <ProductForm onSubmit={handleEditProduct} formHeading="Edit Fish" />
       )}
